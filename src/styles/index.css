@@ -74,6 +74,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 main {
@@ -271,7 +272,6 @@ main {
   font-size: 1.1rem;
 }
 
-
 .rolls-best,
 .time-best {
   display: flex;
@@ -284,4 +284,12 @@ main {
 .rolls-best > p:last-child,
 .time-best > p:last-child {
   margin-block: 0.5em;
+}
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #cc0000;
 }

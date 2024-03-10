@@ -117,9 +117,37 @@ export default function App() {
     />
   ));
 
+  document.addEventListener(
+    "keydown",
+    function (e) {
+      if (e.keyCode == 123) {
+        return false;
+      } else if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        return false;
+      } else if (e.ctrlKey && e.keyCode == 85) {
+        return false;
+      }
+    },
+    false
+  );
+
+  if (document.addEventListener) {
+    document.addEventListener(
+      "contextmenu",
+      function (e) {
+        e.preventDefault();
+      },
+      false
+    );
+  } else {
+    document.attachEvent("oncontextmenu", function () {
+      window.e.returnValue = false;
+    });
+  }
+
   return (
     <>
-      <div className="app-container shadow-shorter">
+      <div className="app-container shadow-shorter unselectable">
         {/* Render Confetti component if `tenzies` is true*/}
         {isWon && <Confetti />}
         <main>
