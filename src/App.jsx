@@ -154,13 +154,16 @@ export default function App() {
           {!isWon ? <h1 className="title">Tenzies</h1> : ""}
           {isWon ? (
             <p className="instructions">
-              <p className="winner gradient-text"> YOU WON!</p>
+              <p className="winner gradient-text">
+                <b>TENZI</b> YOU WON!
+              </p>
               To play new game press New Game
             </p>
           ) : (
             <p className="instructions">
-              Roll until all dice are the same. Click each die to freeze it at
-              its current value between rolls.
+              Roll until all dice are of same number.
+              <br />
+              Click each die to freeze it then roll for the new one.
             </p>
           )}{" "}
           {!isWon ? (

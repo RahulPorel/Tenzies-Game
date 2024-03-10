@@ -1,5 +1,9 @@
 ## Tenzies (Game)
 
+# What is Tenzies
+
+The game involves rolling 10 dice, trying to get them all to land on the same number, and then shouting "Tenzi!" to win the game.
+
 # Description
 
 Tenzies is a fun to play browser based game made using HTML,CSS,JS, ReactJs
