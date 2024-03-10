@@ -15,6 +15,7 @@ Tenzies is a fun to play browser based game made using HTML,CSS,JS, ReactJs
 # Live Demo 👁️
 
 - Netlify 🔗
+- https://tenzis-game-rahulporel.netlify.app/
 
 # Snapshot of Tenzies (Game)
 
