@@ -40,7 +40,7 @@ Tenzies is a fun to play browser based game made using HTML,CSS,JS, ReactJs
 #### 01. Install node dependices
 
 ```npm
- npm i
+ npm install
 ```
 
 #### 02. Run project in localhost
@@ -48,3 +48,11 @@ Tenzies is a fun to play browser based game made using HTML,CSS,JS, ReactJs
 ```npm
  npm run dev
 ```
+
+#### 03. Build this project for deployment
+
+```npm
+ npm run build
+```
+
+NOTE: After build add dist folder to whatever hosting you are using.
