@@ -1,0 +1,287 @@
+/* ---------------------- */
+/* Fonts                  */
+/* ---------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* ---------------------- */
+/* Custom properties      */
+/* ---------------------- */
+
+:root {
+  --clr-background: #0b2434;
+  --clr-accent: #59e391;
+
+  --clr-light: #f5f5f5;
+  --clr-lighter: #ffffff;
+
+  --crl-text: #4a4e74;
+  --crl-text-darker: #2b283a;
+
+  --clr-button: #5035ff;
+
+  --ff-main: "Roboto", sans-serif;
+  --ff-dice: "Karla", sans-serif;
+}
+
+/* ---------------------- */
+/* Reset                  */
+/* ---------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------- */
+/* Typography             */
+/* ---------------------- */
+
+html {
+  font-family: var(--ff-main);
+  background-color: var(--clr-background);
+}
+p {
+  color: var(--crl-text);
+}
+
+body {
+  margin: 0;
+  background-color: #0b2434;
+  padding: 20px;
+  font-family: "Karla", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: var(--clr-light);
+  min-height: 60vh;
+  padding: 2em;
+  margin: 2em;
+  width: min(80vw, 500px);
+  border-radius: 1em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* ---------------------- */
+/* Components             */
+/* ---------------------- */
+
+/* APP */
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 3em;
+  text-transform: uppercase;
+  color: var(--crl-text-darker);
+}
+
+.instructions {
+  text-align: center;
+}
+
+.winner {
+  margin-top: 0.5em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--clr-button);
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: #ca4246;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(
+    45deg,
+    #ca4246 16.666%,
+    #e16541 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #a7489b 83.333%
+  );
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+}
+
+.gradient-text:hover {
+  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 650%;
+  }
+  40% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-simple-animation {
+  0% {
+    background-size: 100%;
+  }
+  80% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 650%;
+  }
+}
+
+/* DICE */
+
+.dice-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1em;
+  margin-block: 1em;
+}
+
+.die-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 1.2em;
+  background-color: var(--clr-lighter);
+  color: var(--crl-text-darker);
+  border-radius: 5px;
+  /* border: 1px solid var(--clr-background); */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+}
+
+.die-face:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
+    0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.09);
+}
+
+.die-face.isHeld {
+  background-color: var(--clr-accent);
+}
+
+.die-num {
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-family: var(--ff-dice);
+}
+
+/* Button */
+
+.roll-dice {
+  border-radius: 10px;
+  padding: 1em 3em;
+  font-family: var(--ff-main);
+  /* margin-block: 3em 2em; */
+  background-color: var(--clr-button);
+  color: var(--clr-lighter);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.09), 0 4px 2px rgba(0, 0, 0, 0.09),
+    0 8px 4px rgba(0, 0, 0, 0.09), 0 16px 8px rgba(0, 0, 0, 0.09);
+}
+
+.roll-dice:focus-visible,
+.roll-dice:hover {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.roll-dice:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+/* Stats */
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin-top: 1em;
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+
+.rolls-best,
+.time-best {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  color: var(--crl-text-darker);
+}
+
+.rolls-best > p:last-child,
+.time-best > p:last-child {
+  margin-block: 0.5em;
+}
